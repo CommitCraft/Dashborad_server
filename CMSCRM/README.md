@@ -145,12 +145,12 @@ npm run dev
 The system includes pre-configured demo accounts demonstrating the enhanced permission system:
 
 ### 🛡️ Super Admin Account
-- **Username:** `superadmin`
+- **Username:** `superadmin@cmscrm.com`
 - **Password:** `SuperAdmin123!`
 - **Access:** Complete system control, all pages, all operations
 
 ### 👤 Regular User Account ⭐ **Enhanced Features**
-- **Username:** `user`
+- **Username:** `user@cmscrm.com`
 - **Password:** `User123!`
 - **Key Features:** 
   - ✅ **5 Assigned Pages** - Full CRUD access to users, roles, and pages
