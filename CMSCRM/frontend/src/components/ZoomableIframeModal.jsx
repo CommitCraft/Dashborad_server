@@ -150,7 +150,7 @@ const ZoomableIframeModal = ({
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white truncate">
               {title || 'Iframe Viewer'}
             </h3>
-            {url && (
+            {/* {url && (
               <a
                 href={url}
                 target="_blank"
@@ -160,7 +160,7 @@ const ZoomableIframeModal = ({
               >
                 <ExternalLink className="h-4 w-4" />
               </a>
-            )}
+            )} */}
           </div>
 
           {/* Zoom and control buttons */}

@@ -10,7 +10,7 @@ class UserController {
   // Get all users
   static async getUsers(req, res) {
     try {
-      const { page = 1, limit = 10, search = '', status = '' } = req.query;
+      const { page = 1, limit = 1000, search = '', status = '' } = req.query;
 
       const result = await User.findAll({
         page: parseInt(page),

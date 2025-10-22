@@ -139,7 +139,7 @@ const Sidebar = ({ isOpen, onClose, onExternalPageOpen }) => {
               <LayoutDashboard className="h-5 w-5 text-white" />
             </div>
             <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white">
-              CMSCRM
+              Saral Tech Dashboard
             </span>
           </div>
           <button
@@ -188,75 +188,112 @@ const Sidebar = ({ isOpen, onClose, onExternalPageOpen }) => {
             ) : myPages.length === 0 ? (
               <div className="px-4 py-3 text-sm text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 rounded-lg">No pages assigned</div>
             ) : (
-              <ul className="space-y-1">
-                {myPages
-                  .filter(p => {
-                    // Filter out specific pages that shouldn't be shown in sidebar
-                    const excludedPages = ['Activity Logs', 'Company Website', 'Documentation', 'Help Center'];
-                    return !excludedPages.includes(p.name);
-                  })
-                  .map((p) => {
-                  const isExternal = !!p.is_external || (typeof p.url === 'string' && (p.url.startsWith('http://') || p.url.startsWith('https://')));
-                  const href = formatUrl(p.url);
-                  const pageActive = isActive(href);
-                  return (
-                    <li key={p.id}>
-                      {isExternal ? (
-                        <button
-                          onClick={() => onExternalPageOpen(p.name, href)}
-                          className="flex items-center gap-3 w-full px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 text-left transition-all duration-200 hover:translate-x-1 group"
-                        >
-                          <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
-                          <span className="truncate">{p.name}</span>
-                        </button>
-                      ) : (
-                        <Link
-                          to={href}
-                          onClick={onClose}
-                          className={`
-                            flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200
-                            ${pageActive
-                              ? 'bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 border-l-4 border-primary-600'
-                              : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:translate-x-1'
-                            }
-                          `}
-                        >
-                          <Globe className={`h-4 w-4 ${pageActive ? 'text-primary-600 dark:text-primary-400' : 'text-gray-400'}`} />
-                          <span className="truncate">{p.name}</span>
-                        </Link>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+              <ul
+  className={`
+    space-y-1 overflow-y-auto
+    ${myPages.length > 10 ? 'max-h-[400px]' : 'max-h-none'}
+    scrollbar-hide
+  `}
+>
+  {myPages
+    .filter(p => {
+      const excludedPages = ['Activity Logs', 'Company Website', 'Documentation', 'Help Center'];
+      return !excludedPages.includes(p.name);
+    })
+    .map((p) => {
+      const isExternal = !!p.is_external || (typeof p.url === 'string' && (p.url.startsWith('http://') || p.url.startsWith('https://')));
+      const href = formatUrl(p.url);
+      const pageActive = isActive(href);
+      return (
+        <li key={p.id}>
+          {isExternal ? (
+            <button
+              onClick={() => onExternalPageOpen(p.name, href)}
+              className="flex items-center gap-3 w-full px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 text-left transition-all duration-200 hover:translate-x-1 group"
+            >
+              <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
+              <span className="truncate">{p.name}</span>
+            </button>
+          ) : (
+            <Link
+              to={href}
+              onClick={onClose}
+              className={`
+                flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200
+                ${pageActive
+                  ? 'bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 border-l-4 border-primary-600'
+                  : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 hover:translate-x-1'
+                }
+              `}
+            >
+              <Globe className={`h-4 w-4 ${pageActive ? 'text-primary-600 dark:text-primary-400' : 'text-gray-400'}`} />
+              <span className="truncate">{p.name}</span>
+            </Link>
+          )}
+        </li>
+      );
+    })}
+</ul>
             )}
           </div>
         </nav>
 
         {/* User section */}
-        <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900/50">
-          <div className="flex items-center gap-3 mb-3 p-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900 dark:to-primary-800 rounded-full flex items-center justify-center shadow-sm flex-shrink-0">
-              <User className="h-6 w-6 text-primary-600 dark:text-primary-400" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
-                {user?.username}
-              </p>
-              <p className="text-xs font-medium text-gray-500 dark:text-gray-400 truncate">
-                {user?.roles?.[0] ? (typeof user.roles[0] === 'string' ? user.roles[0].replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase()) : user.roles[0].name) : 'User'}
-              </p>
-            </div>
-          </div>
-          
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-3 w-full px-4 py-3 text-sm font-semibold text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 rounded-xl transition-all duration-200 border border-transparent hover:border-red-200 dark:hover:border-red-800"
-          >
-            <LogOut className="h-5 w-5" />
-            Sign out
-          </button>
-        </div>
+       <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900/50">
+  <div className="flex flex-col gap-3">
+    
+    {/* Row 1 — User Info */}
+    <div className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-300">
+  {/* Avatar + Info */}
+  <div className="flex items-center gap-3 min-w-0">
+    <div className="w-10 h-10 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900 dark:to-primary-800 rounded-full flex items-center justify-center shadow-sm flex-shrink-0">
+      <User className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+    </div>
+
+    <div className="flex-1 min-w-0">
+      <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+        {user?.username}
+      </p>
+      <p className="text-xs font-medium text-gray-500 dark:text-gray-400 truncate">
+        {user?.roles?.[0]
+          ? (typeof user.roles[0] === 'string'
+              ? user.roles[0]
+                  .replace('_', ' ')
+                  .replace(/\b\w/g, l => l.toUpperCase())
+              : user.roles[0].name)
+          : 'User'}
+      </p>
+    </div>
+  </div>
+
+  {/* Logout Button */}
+  <button
+  onClick={handleLogout}
+  className="group relative flex items-center justify-center gap-2 px-3 py-2 text-sm font-semibold text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 rounded-lg border border-transparent hover:border-red-200 dark:hover:border-red-800 transition-all duration-200"
+>
+  <LogOut className="h-5 w-5" />
+  
+  {/* Text only visible on hover */}
+  <span className="absolute left-1/2 top-full mt-1 -translate-x-1/2 text-xs text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-sm">
+    Log out
+  </span>
+</button>
+
+</div>
+
+
+    {/* Row 2 — Logout Button */}
+    {/* <button
+      onClick={handleLogout}
+      className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 rounded-xl transition-all duration-200 border border-transparent hover:border-red-200 dark:hover:border-red-800"
+    >
+      <LogOut className="h-5 w-5" />
+      Sign out
+    </button> */}
+
+  </div>
+</div>
+
       </div>
     </>
   );

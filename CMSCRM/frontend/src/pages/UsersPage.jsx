@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { 
-  Search, 
-  Plus, 
-  Edit, 
-  Trash2, 
-  Eye, 
-  EyeOff, 
+import React, { useState, useEffect, useCallback } from "react";
+import {
+  Search,
+  Plus,
+  Edit,
+  Trash2,
+  Eye,
+  EyeOff,
   User,
   Mail,
   Shield,
@@ -13,23 +13,23 @@ import {
   XCircle,
   ChevronLeft,
   ChevronRight,
-  Monitor
-} from 'lucide-react';
-import Layout from '../components/Layout/Layout';
-import { useAuth } from '../context/AuthContext';
-import { apiService, endpoints } from '../utils/api';
-import { formatDateTime, isValidEmail } from '../utils/helpers';
-import LoadingSpinner from '../components/LoadingSpinner';
-import UserPagesModal from '../components/UserPagesModal';
-import toast from 'react-hot-toast';
+  Monitor,
+} from "lucide-react";
+import Layout from "../components/Layout/Layout";
+import { useAuth } from "../context/AuthContext";
+import { apiService, endpoints } from "../utils/api";
+import { formatDateTime, isValidEmail } from "../utils/helpers";
+import LoadingSpinner from "../components/LoadingSpinner";
+import UserPagesModal from "../components/UserPagesModal";
+import toast from "react-hot-toast";
 
 const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    role_id: '',
-    status: 'active'
+    username: "",
+    email: "",
+    password: "",
+    role_id: "",
+    status: "active",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -38,19 +38,19 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
   useEffect(() => {
     if (user) {
       setFormData({
-        username: user.username || '',
-        email: user.email || '',
-        password: '',
-        role_id: user.role_id || '',
-        status: user.status || 'active'
+        username: user.username || "",
+        email: user.email || "",
+        password: "",
+        role_id: user.role_id || "",
+        status: user.status || "active",
       });
     } else {
       setFormData({
-        username: '',
-        email: '',
-        password: '',
-        role_id: '',
-        status: 'active'
+        username: "",
+        email: "",
+        password: "",
+        role_id: "",
+        status: "active",
       });
     }
     setErrors({});
@@ -58,41 +58,41 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.username.trim()) {
-      newErrors.username = 'Username is required';
+      newErrors.username = "Username is required";
     }
-    
+
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
+      newErrors.email = "Please enter a valid email";
     }
-    
+
     if (!user && !formData.password) {
-      newErrors.password = 'Password is required for new users';
+      newErrors.password = "Password is required for new users";
     }
-    
+
     if (!formData.role_id) {
-      newErrors.role_id = 'Role is required';
+      newErrors.role_id = "Role is required";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setLoading(true);
     try {
       const payload = { ...formData };
       if (user && !payload.password) {
         delete payload.password; // Don't send empty password for updates
       }
-      
+
       // Convert role_id to roles array for backend
       if (payload.role_id) {
         payload.roles = [parseInt(payload.role_id)];
@@ -100,20 +100,50 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
       } else {
         payload.roles = [];
       }
-      
+
       if (user) {
         await apiService.put(`${endpoints.users.list}/${user.id}`, payload);
-        toast.success('User updated successfully');
+        toast.success("User updated successfully", {
+          style: {
+            background: "#1f2937", // dark gray background
+            color: "#e5e7eb", // light gray text
+            border: "1px solid #374151",
+          },
+          iconTheme: {
+            primary: "#10b981", // emerald green icon
+            secondary: "#1f2937",
+          },
+        });
       } else {
         await apiService.post(endpoints.users.list, payload);
-        toast.success('User created successfully');
+        toast.success("User created successfully", {
+          style: {
+            background: "#1f2937", // dark gray background
+            color: "#e5e7eb", // light gray text
+            border: "1px solid #374151",
+          },
+          iconTheme: {
+            primary: "#10b981", // emerald green icon
+            secondary: "#1f2937",
+          },
+        });
       }
-      
+
       onSave();
       onClose();
     } catch (error) {
-      const message = error.response?.data?.message || 'Failed to save user';
-      toast.error(message);
+      const message = error.response?.data?.message || "Failed to save user";
+      toast.error(message, {
+        style: {
+          background: "#1f2937",
+          color: "#f87171", // red text for error
+          border: "1px solid #4b5563",
+        },
+        iconTheme: {
+          primary: "#f87171",
+          secondary: "#1f2937",
+        },
+      });
     } finally {
       setLoading(false);
     }
@@ -121,9 +151,9 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -134,10 +164,10 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
         <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            {user ? 'Edit User' : 'Add New User'}
+            {user ? "Edit User" : "Add New User"}
           </h3>
         </div>
-        
+
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           {/* Username */}
           <div>
@@ -150,12 +180,16 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
               value={formData.username}
               onChange={handleInputChange}
               className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white ${
-                errors.username ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                errors.username
+                  ? "border-red-300 dark:border-red-600"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               placeholder="Enter username"
             />
             {errors.username && (
-              <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.username}</p>
+              <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                {errors.username}
+              </p>
             )}
           </div>
 
@@ -170,28 +204,39 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
               value={formData.email}
               onChange={handleInputChange}
               className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white ${
-                errors.email ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                errors.email
+                  ? "border-red-300 dark:border-red-600"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
               placeholder="Enter email address"
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
+              <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                {errors.email}
+              </p>
             )}
           </div>
 
           {/* Password */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Password {user && <span className="text-gray-500">(leave blank to keep current)</span>}
+              Password{" "}
+              {user && (
+                <span className="text-gray-500">
+                  (leave blank to keep current)
+                </span>
+              )}
             </label>
             <div className="relative">
               <input
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
                 className={`w-full px-3 py-2 pr-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white ${
-                  errors.password ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                  errors.password
+                    ? "border-red-300 dark:border-red-600"
+                    : "border-gray-300 dark:border-gray-600"
                 }`}
                 placeholder={user ? "Enter new password" : "Enter password"}
               />
@@ -208,7 +253,9 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
               </button>
             </div>
             {errors.password && (
-              <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.password}</p>
+              <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                {errors.password}
+              </p>
             )}
           </div>
 
@@ -222,16 +269,22 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
               value={formData.role_id}
               onChange={handleInputChange}
               className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-700 dark:text-white ${
-                errors.role_id ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
+                errors.role_id
+                  ? "border-red-300 dark:border-red-600"
+                  : "border-gray-300 dark:border-gray-600"
               }`}
             >
               <option value="">Select a role</option>
-              {roles.map(role => (
-                <option key={role.id} value={role.id}>{role.name}</option>
+              {roles.map((role) => (
+                <option key={role.id} value={role.id}>
+                  {role.name}
+                </option>
               ))}
             </select>
             {errors.role_id && (
-              <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.role_id}</p>
+              <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                {errors.role_id}
+              </p>
             )}
           </div>
 
@@ -266,7 +319,7 @@ const UserModal = ({ isOpen, onClose, user, roles, onSave }) => {
               className="px-4 py-2 text-sm font-medium text-white bg-primary-600 border border-transparent rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
             >
               {loading && <LoadingSpinner size="sm" className="mr-2" />}
-              {user ? 'Update' : 'Create'}
+              {user ? "Update" : "Create"}
             </button>
           </div>
         </form>
@@ -280,7 +333,7 @@ const UsersPage = () => {
   const [users, setUsers] = useState([]);
   const [roles, setRoles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -295,7 +348,7 @@ const UsersPage = () => {
       const params = {
         page: currentPage,
         limit: usersPerPage,
-        search: searchTerm
+        search: searchTerm,
       };
       const response = await apiService.get(endpoints.users.list, { params });
       // The backend returns: { success, message, data: { users: [...], pagination: {...} } }
@@ -303,8 +356,19 @@ const UsersPage = () => {
       setUsers(data.users || []);
       setTotalPages(Math.ceil((data.pagination?.total || 0) / usersPerPage));
     } catch (error) {
-      console.error('Error fetching users:', error);
-      toast.error('Failed to fetch users');
+      console.error("Error fetching users:", error);
+      toast.error("Failed to fetch users", {
+        style: {
+          background: "#1f2937", // dark gray
+          color: "#fca5a5", // soft red text for contrast
+          border: "1px solid #4b5563",
+          borderRadius: "8px",
+        },
+        iconTheme: {
+          primary: "#ef4444", // bright red icon
+          secondary: "#1f2937", // matches dark bg
+        },
+      });
       setUsers([]); // Ensure users is always an array
     } finally {
       setLoading(false);
@@ -317,7 +381,7 @@ const UsersPage = () => {
       // The backend returns: { success, message, data: { roles: [...] } }
       setRoles(response.data.data?.roles || []);
     } catch (error) {
-      console.error('Error fetching roles:', error);
+      console.error("Error fetching roles:", error);
       setRoles([]); // Ensure roles is always an array
     }
   }, []);
@@ -329,17 +393,18 @@ const UsersPage = () => {
 
   const handleDeleteUser = async (userId) => {
     if (userId === currentUser?.id) {
-      toast.error('You cannot delete your own account');
+      toast.error("You cannot delete your own account");
       return;
     }
 
-    if (window.confirm('Are you sure you want to delete this user?')) {
+    if (window.confirm("Are you sure you want to delete this user?")) {
       try {
         await apiService.delete(`${endpoints.users.list}/${userId}`);
-        toast.success('User deleted successfully');
+        toast.success("User deleted successfully");
         fetchUsers();
       } catch (error) {
-        const message = error.response?.data?.message || 'Failed to delete user';
+        const message =
+          error.response?.data?.message || "Failed to delete user";
         toast.error(message);
       }
     }
@@ -363,7 +428,7 @@ const UsersPage = () => {
   const handleModalSave = () => {
     fetchUsers();
     // Notify other components (e.g., sidebar) to refresh permissions
-    window.dispatchEvent(new Event('permissions-updated'));
+    window.dispatchEvent(new Event("permissions-updated"));
   };
 
   const handleViewUserPages = (user) => {
@@ -376,28 +441,37 @@ const UsersPage = () => {
     setSelectedUserForPages(null);
   };
 
-  const filteredUsers = Array.isArray(users) ? users.filter(user =>
-    user.username?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    user.email?.toLowerCase().includes(searchTerm.toLowerCase())
-  ) : [];
+  const filteredUsers = Array.isArray(users)
+    ? users.filter(
+        (user) =>
+          user.username?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          user.email?.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : [];
 
   const getStatusBadge = (status) => {
-    const isActive = status === 'active';
+    const isActive = status === "active";
     return (
-      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-        isActive 
-          ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-          : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-      }`}>
-        {isActive ? <CheckCircle className="h-3 w-3 mr-1" /> : <XCircle className="h-3 w-3 mr-1" />}
-        {isActive ? 'Active' : 'Inactive'}
+      <span
+        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+          isActive
+            ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+            : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+        }`}
+      >
+        {isActive ? (
+          <CheckCircle className="h-3 w-3 mr-1" />
+        ) : (
+          <XCircle className="h-3 w-3 mr-1" />
+        )}
+        {isActive ? "Active" : "Inactive"}
       </span>
     );
   };
 
   const getRoleName = (roleId) => {
-    const role = roles.find(r => r.id === roleId);
-    return role ? role.name : 'Unknown Role';
+    const role = roles.find((r) => r.id === roleId);
+    return role ? role.name : "Unknown Role";
   };
 
   return (
@@ -439,7 +513,8 @@ const UsersPage = () => {
             {searchTerm && (
               <div className="flex items-center gap-2 px-4 py-2 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-700">
                 <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
-                  {filteredUsers.length} result{filteredUsers.length !== 1 ? 's' : ''}
+                  {filteredUsers.length} result
+                  {filteredUsers.length !== 1 ? "s" : ""}
                 </span>
               </div>
             )}
@@ -483,12 +558,17 @@ const UsersPage = () => {
                       <tr>
                         <td colSpan="6" className="px-6 py-12 text-center">
                           <User className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                          <p className="text-gray-500 dark:text-gray-400">No users found</p>
+                          <p className="text-gray-500 dark:text-gray-400">
+                            No users found
+                          </p>
                         </td>
                       </tr>
                     ) : (
                       filteredUsers.map((user) => (
-                        <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
+                        <tr
+                          key={user.id}
+                          className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150"
+                        >
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center gap-3">
                               <div className="flex-shrink-0">
@@ -509,7 +589,9 @@ const UsersPage = () => {
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center gap-2">
                               <Mail className="h-4 w-4 text-gray-400" />
-                              <span className="text-sm text-gray-900 dark:text-white">{user.email}</span>
+                              <span className="text-sm text-gray-900 dark:text-white">
+                                {user.email}
+                              </span>
                             </div>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
@@ -524,7 +606,9 @@ const UsersPage = () => {
                             {getStatusBadge(user.status)}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                            {user.last_login ? formatDateTime(user.last_login) : 'Never'}
+                            {user.last_login
+                              ? formatDateTime(user.last_login)
+                              : "Never"}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div className="flex items-center justify-end gap-2">
@@ -568,14 +652,20 @@ const UsersPage = () => {
                     </div>
                     <div className="flex gap-2">
                       <button
-                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        onClick={() =>
+                          setCurrentPage((prev) => Math.max(prev - 1, 1))
+                        }
                         disabled={currentPage === 1}
                         className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-sm hover:shadow"
                       >
                         <ChevronLeft className="h-4 w-4" />
                       </button>
                       <button
-                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        onClick={() =>
+                          setCurrentPage((prev) =>
+                            Math.min(prev + 1, totalPages)
+                          )
+                        }
                         disabled={currentPage === totalPages}
                         className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-sm hover:shadow"
                       >

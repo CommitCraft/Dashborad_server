@@ -11,7 +11,6 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuth();
   const { theme, toggleTheme } = useTheme();
-
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -98,9 +97,9 @@ const LoginPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl font-extrabold text-gray-900 dark:text-white"
           >
-            CMSCRM
+            Saral Tech Dashboard
           </motion.h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Content Management System CRM</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Saral Tech Dashboard</p>
         </div>
 
         {/* Login Form */}
@@ -172,7 +171,7 @@ const LoginPage = () => {
           transition={{ delay: 0.5 }}
           className="text-center text-xs text-gray-500 dark:text-gray-400 mt-6"
         >
-          CMSCRM v1.0 • Made with ❤️ by Saral Technologies
+          Saral Tech Dashboard v1.0 • Made with ❤️ by Saral Technologies
         </motion.p>
       </motion.div>
     </div>

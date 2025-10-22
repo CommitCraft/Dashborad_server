@@ -7,7 +7,7 @@ const path = require('path');
 class PageController {
   static async getPages(req, res) {
     try {
-      const { page = 1, limit = 10, search = '', status = '' } = req.query;
+      const { page = 1, limit = 1000, search = '', status = '' } = req.query;
 
       const result = await Page.findAll({
         page: parseInt(page),

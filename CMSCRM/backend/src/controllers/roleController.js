@@ -10,7 +10,7 @@ class RoleController {
     try {
       console.log('📥 GET /roles request - Query params:', req.query);
       
-      const { page = 1, limit = 10, search = '' } = req.query;
+      const { page = 1, limit = 1000, search = '' } = req.query;
 
       const result = await Role.findAll({
         page: parseInt(page),
