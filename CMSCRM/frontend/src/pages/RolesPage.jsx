@@ -570,6 +570,22 @@ const RolesPage = () => {
                         {role.description}
                       </p>
                     </div>
+                    <div className="flex items-center gap-2 ml-4">
+                  <button
+                    onClick={() => handleEditRole(role)}
+                    className="p-2.5 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/30 dark:text-primary-400 rounded-lg transition-all duration-150"
+                    title="Edit role"
+                  >
+                    <Edit className="h-5 w-5" />
+                  </button>
+                  <button
+                    onClick={() => handleDeleteRole(role.id)}
+                    className="p-2.5 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 dark:text-red-400 rounded-lg transition-all duration-150"
+                    title="Delete role"
+                  >
+                    <Trash2 className="h-5 w-5" />
+                  </button>
+                </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -602,7 +618,7 @@ const RolesPage = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 ml-4">
+                {/* <div className="flex items-center gap-2 ml-4">
                   <button
                     onClick={() => handleEditRole(role)}
                     className="p-2.5 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/30 dark:text-primary-400 rounded-lg transition-all duration-150"
@@ -617,7 +633,7 @@ const RolesPage = () => {
                   >
                     <Trash2 className="h-5 w-5" />
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

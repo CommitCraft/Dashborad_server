@@ -57,7 +57,18 @@ const UserPagesModal = ({ isOpen, onClose, user }) => {
       }
     } catch (error) {
       console.error('Error fetching user pages:', error);
-      toast.error('Failed to load user pages');
+      toast.error('Failed to load user pages', {
+  style: {
+    background: '#1f2937', // dark gray
+    color: '#fca5a5',      // soft red text for contrast
+    border: '1px solid #4b5563',
+    borderRadius: '8px',
+  },
+  iconTheme: {
+    primary: '#ef4444',    // bright red icon
+    secondary: '#1f2937',  // matches dark bg
+  },
+});
       setPages([]);
     } finally {
       setLoading(false);
