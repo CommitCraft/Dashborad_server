@@ -1,24 +1,24 @@
-import React, { useState, useRef } from 'react';
-import { 
-  X, 
-  ZoomIn, 
-  ZoomOut, 
-  RotateCcw, 
-  Maximize, 
-  Minimize, 
+import React, { useState, useRef } from "react";
+import {
+  X,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw,
+  Maximize,
+  Minimize,
   ExternalLink,
   Move3D,
-  MousePointer
-} from 'lucide-react';
+  MousePointer,
+} from "lucide-react";
 
-const ZoomableIframeModal = ({ 
-  isOpen, 
-  onClose, 
-  title, 
-  url, 
+const ZoomableIframeModal = ({
+  isOpen,
+  onClose,
+  title,
+  url,
   initialZoom = 100,
   minZoom = 50,
-  maxZoom = 300 
+  maxZoom = 300,
 }) => {
   const [zoom, setZoom] = useState(initialZoom);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -31,11 +31,11 @@ const ZoomableIframeModal = ({
 
   // Zoom functions
   const handleZoomIn = () => {
-    setZoom(prev => Math.min(prev + 10, maxZoom));
+    setZoom((prev) => Math.min(prev + 10, maxZoom));
   };
 
   const handleZoomOut = () => {
-    setZoom(prev => Math.max(prev - 10, minZoom));
+    setZoom((prev) => Math.max(prev - 10, minZoom));
   };
 
   const handleResetZoom = () => {
@@ -54,7 +54,7 @@ const ZoomableIframeModal = ({
     setIsDragging(true);
     setDragStart({
       x: e.clientX - position.x,
-      y: e.clientY - position.y
+      y: e.clientY - position.y,
     });
   };
 
@@ -63,7 +63,7 @@ const ZoomableIframeModal = ({
     e.preventDefault();
     setPosition({
       x: e.clientX - dragStart.x,
-      y: e.clientY - dragStart.y
+      y: e.clientY - dragStart.y,
     });
   };
 
@@ -88,32 +88,32 @@ const ZoomableIframeModal = ({
   React.useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isOpen) return;
-      
+
       switch (e.key) {
-        case '+':
-        case '=':
+        case "+":
+        case "=":
           if (e.ctrlKey) {
             e.preventDefault();
             handleZoomIn();
           }
           break;
-        case '-':
+        case "-":
           if (e.ctrlKey) {
             e.preventDefault();
             handleZoomOut();
           }
           break;
-        case '0':
+        case "0":
           if (e.ctrlKey) {
             e.preventDefault();
             handleResetZoom();
           }
           break;
-        case 'Escape':
+        case "Escape":
           onClose();
           break;
-        case 'f':
-        case 'F11':
+        case "f":
+        case "F11":
           if (!e.ctrlKey) {
             e.preventDefault();
             toggleFullscreen();
@@ -122,8 +122,8 @@ const ZoomableIframeModal = ({
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
   // Mouse wheel zoom
@@ -131,24 +131,26 @@ const ZoomableIframeModal = ({
     if (e.ctrlKey) {
       e.preventDefault();
       const delta = e.deltaY > 0 ? -10 : 10;
-      setZoom(prev => Math.max(minZoom, Math.min(maxZoom, prev + delta)));
+      setZoom((prev) => Math.max(minZoom, Math.min(maxZoom, prev + delta)));
     }
   };
 
   if (!isOpen) return null;
 
-  const modalSize = isFullscreen 
-    ? 'fixed inset-0' 
-    : 'fixed inset-4 md:inset-8 lg:inset-16';
+  const modalSize = isFullscreen
+    ? "fixed inset-0"
+    : "fixed inset-4 md:inset-8 lg:inset-16";
 
   return (
-    <div className={`${modalSize} bg-black bg-opacity-75 flex items-center justify-center z-50`}>
+    <div
+      className={`${modalSize} bg-black bg-opacity-75 flex items-center justify-center z-50`}
+    >
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full h-full flex flex-col overflow-hidden">
         {/* Header with controls */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700">
           <div className="flex items-center space-x-3">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white truncate">
-              {title || 'Iframe Viewer'}
+              {title || "Iframe Viewer"}
             </h3>
             {/* {url && (
               <a
@@ -175,7 +177,7 @@ const ZoomableIframeModal = ({
               >
                 <ZoomOut className="h-4 w-4" />
               </button>
-              
+
               <input
                 type="range"
                 min={minZoom}
@@ -186,7 +188,7 @@ const ZoomableIframeModal = ({
                 className="w-20 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-600"
                 title={`Zoom: ${zoom}%`}
               />
-              
+
               <button
                 onClick={handleZoomIn}
                 disabled={zoom >= maxZoom}
@@ -195,7 +197,7 @@ const ZoomableIframeModal = ({
               >
                 <ZoomIn className="h-4 w-4" />
               </button>
-              
+
               <span className="text-xs font-mono text-gray-600 dark:text-gray-400 min-w-[3rem] text-center">
                 {zoom}%
               </span>
@@ -213,13 +215,17 @@ const ZoomableIframeModal = ({
             <button
               onClick={togglePanMode}
               className={`p-2 rounded-lg transition-colors ${
-                isPanning 
-                  ? 'bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400' 
-                  : 'text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600'
+                isPanning
+                  ? "bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400"
+                  : "text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600"
               }`}
               title="Toggle pan mode"
             >
-              {isPanning ? <Move3D className="h-4 w-4" /> : <MousePointer className="h-4 w-4" />}
+              {isPanning ? (
+                <Move3D className="h-4 w-4" />
+              ) : (
+                <MousePointer className="h-4 w-4" />
+              )}
             </button>
 
             <button
@@ -227,7 +233,11 @@ const ZoomableIframeModal = ({
               className="p-2 rounded-lg text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600"
               title="Toggle fullscreen (F)"
             >
-              {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
+              {isFullscreen ? (
+                <Minimize className="h-4 w-4" />
+              ) : (
+                <Maximize className="h-4 w-4" />
+              )}
             </button>
 
             <button
@@ -241,21 +251,21 @@ const ZoomableIframeModal = ({
         </div>
 
         {/* Iframe container */}
-        <div 
+        <div
           ref={containerRef}
           className={`flex-1 overflow-hidden bg-gray-100 dark:bg-gray-900 relative ${
-            isPanning ? 'cursor-move' : 'cursor-default'
+            isPanning ? "cursor-move" : "cursor-default"
           }`}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           onWheel={handleWheel}
-          style={{ 
-            userSelect: 'none',
-            WebkitUserSelect: 'none',
-            MozUserSelect: 'none',
-            msUserSelect: 'none'
+          style={{
+            userSelect: "none",
+            WebkitUserSelect: "none",
+            MozUserSelect: "none",
+            msUserSelect: "none",
           }}
         >
           <div
@@ -268,18 +278,17 @@ const ZoomableIframeModal = ({
               ref={iframeRef}
               src={url}
               title={title}
-              className="border border-gray-300 dark:border-gray-600 shadow-lg"
+              className="w-full h-full border-0 m-0 p-0 block"
               style={{
-                width: '100%',
-                height: '100%',
-                minWidth: '320px',
-                minHeight: '240px',
-                maxWidth: '1200px',
-                maxHeight: '800px',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
                 transform: `scale(${zoom / 100})`,
-                transformOrigin: 'center center',
-                transition: 'transform 0.2s ease-out',
-                pointerEvents: isPanning ? 'none' : 'auto',
+                transformOrigin: "center center",
+                transition: "transform 0.2s ease-out",
+                pointerEvents: isPanning ? "none" : "auto",
               }}
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation"
             />
@@ -302,7 +311,9 @@ const ZoomableIframeModal = ({
               )}
               <span>Zoom: {zoom}%</span>
               <span className="text-gray-500">•</span>
-              <span>Range: {minZoom}%-{maxZoom}%</span>
+              <span>
+                Range: {minZoom}%-{maxZoom}%
+              </span>
             </div>
           </div>
         </div>
