@@ -15,12 +15,12 @@ module.exports = {
   // ⬇️ your env here
   env: {
     NODE_ENV: 'development',
-    VITE_HOST: '192.168.40.4',
+    VITE_HOST: '192.168.31.65',
     VITE_PORT: '8800'
   },
   env_production: {
     NODE_ENV: 'production',
-    VITE_HOST: '192.168.40.4',
+    VITE_HOST: '192.168.31.65',
     VITE_PORT: '8800'
   },
 
