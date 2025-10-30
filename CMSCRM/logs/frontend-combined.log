@@ -1,0 +1,313 @@
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  override existing env vars with { override: true }
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  override existing env vars with { override: true }
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:54 +05:30: > vite
+2025-10-30 15:54 +05:30: 
+2025-10-30 15:54 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+2025-10-30 15:54 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:54 +05:30: [31merror when starting dev server:
+2025-10-30 15:54 +05:30: Error: listen EADDRNOTAVAIL: address not available 192.168.31.65:8800
+2025-10-30 15:54 +05:30:     at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+2025-10-30 15:54 +05:30:     at listenInCluster (node:net:1997:12)
+2025-10-30 15:54 +05:30:     at node:net:2206:7
+2025-10-30 15:54 +05:30:     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+2025-10-30 15:54 +05:30: Frontend process exited with code 1
+2025-10-30 15:55 +05:30: 
+2025-10-30 15:55 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:55 +05:30: > vite
+2025-10-30 15:55 +05:30: 
+2025-10-30 15:55 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+2025-10-30 15:55 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:55 +05:30: 
+2025-10-30 15:55 +05:30:   [32m[1mVITE[22m v7.1.9[39m  [2mready in [0m[1m191[22m[2m[0m ms[22m
+2025-10-30 15:55 +05:30: 
+2025-10-30 15:55 +05:30:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m8800[22m/[39m
+2025-10-30 15:56 +05:30: 
+2025-10-30 15:56 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:56 +05:30: > vite
+2025-10-30 15:56 +05:30: 
+2025-10-30 15:56 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+2025-10-30 15:56 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:56 +05:30: 
+2025-10-30 15:56 +05:30:   [32m[1mVITE[22m v7.1.9[39m  [2mready in [0m[1m191[22m[2m[0m ms[22m
+2025-10-30 15:56 +05:30: 
+2025-10-30 15:56 +05:30:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m8800[22m/[39m
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:57 +05:30: > vite
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+2025-10-30 15:57 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30:   [32m[1mVITE[22m v7.1.9[39m  [2mready in [0m[1m205[22m[2m[0m ms[22m
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m8800[22m/[39m
+2025-10-30 15:57 +05:30: ^C
+2025-10-30 15:57 +05:30: ^C
+2025-10-30 15:57 +05:30: Frontend process exited with code 3221225786
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30: > cmscrm-frontend@1.0.0 dev
+2025-10-30 15:57 +05:30: > vite
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30: [dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+2025-10-30 15:57 +05:30: [33mThe `define` option contains an object with "Path" for "process.env" key. It looks like you may have passed the entire `process.env` object to `define`, which can unintentionally expose all environment variables. This poses a security risk and is discouraged.[39m
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30:   [32m[1mVITE[22m v7.1.9[39m  [2mready in [0m[1m186[22m[2m[0m ms[22m
+2025-10-30 15:57 +05:30: 
+2025-10-30 15:57 +05:30:   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m8800[22m/[39m
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
+2025-10-30 15:58 +05:30: Error: Cannot find module 'C:\Users\gteck45\Downloads\Dashborad_server\CMSCRM\start-frontend-dev.js'
+2025-10-30 15:58 +05:30:     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+2025-10-30 15:58 +05:30:     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+2025-10-30 15:58 +05:30:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1192:37)
+2025-10-30 15:58 +05:30:     at Object.<anonymous> (D:\code\testing\CRM\cmscrm-frontend\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-10-30 15:58 +05:30:     at Module._compile (node:internal/modules/cjs/loader:1706:14)
+2025-10-30 15:58 +05:30:     at Object..js (node:internal/modules/cjs/loader:1839:10)
+2025-10-30 15:58 +05:30:     at Module.load (node:internal/modules/cjs/loader:1441:32)
+2025-10-30 15:58 +05:30:     at Function._load (node:internal/modules/cjs/loader:1263:12)
+2025-10-30 15:58 +05:30:     at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+2025-10-30 15:58 +05:30:   code: 'MODULE_NOT_FOUND',
+2025-10-30 15:58 +05:30:   requireStack: []
+2025-10-30 15:58 +05:30: }
