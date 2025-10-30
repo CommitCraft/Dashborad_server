@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
-      host,           // e.g. '192.168.31.65' or '0.0.0.0'
+      host,           // e.g. '192.168.40.4' or '0.0.0.0'
       port,           // e.g. 8800
       strictPort: true, // fail if 8800 is taken (don’t auto-bump to 8801)
       // Optional: if LAN HMR has issues, uncomment the next line:
