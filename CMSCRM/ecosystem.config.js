@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'cmscrm-frontend-dev',
+      name: 'cmscrm-frontend',
       script: 'npm.cmd',
       args: 'run dev',
       cwd: './frontend',
@@ -36,34 +36,34 @@ module.exports = {
       health_check_grace_period: 3000,
       health_check_fatal_exceptions: true
     },
-    {
-      name: 'cmscrm-frontend-build',
-      script: 'npm.cmd',
-      args: 'run build',
-      cwd: './frontend',
-      instances: 1,
-      exec_mode: 'fork',
-      interpreter: 'none',
-      env: {
-        NODE_ENV: 'production'
-      },
-      // Restart configuration
-      watch: false,
-      autorestart: false,
+    // {
+    //   name: 'cmscrm-frontend-build',
+    //   script: 'npm.cmd',
+    //   args: 'run build',
+    //   cwd: './frontend',
+    //   instances: 1,
+    //   exec_mode: 'fork',
+    //   interpreter: 'none',
+    //   env: {
+    //     NODE_ENV: 'production'
+    //   },
+    //   // Restart configuration
+    //   watch: false,
+    //   autorestart: false,
       
-      // Logging configuration
-      log_file: './logs/build-combined.log',
-      out_file: './logs/build-out.log',
-      error_file: './logs/build-error.log',
-      log_date_format: 'YYYY-MM-DD HH:mm Z',
+    //   // Logging configuration
+    //   log_file: './logs/build-combined.log',
+    //   out_file: './logs/build-out.log',
+    //   error_file: './logs/build-error.log',
+    //   log_date_format: 'YYYY-MM-DD HH:mm Z',
       
-      // Memory and CPU monitoring
-      max_memory_restart: '500M',
+    //   // Memory and CPU monitoring
+    //   max_memory_restart: '500M',
       
-      // Advanced features
-      ignore_watch: ['node_modules', 'logs', 'dist'],
-      merge_logs: true
-    },
+    //   // Advanced features
+    //   ignore_watch: ['node_modules', 'logs', 'dist'],
+    //   merge_logs: true
+    // },
     {
       name: 'cmscrm-backend',
       script: 'server.js',
