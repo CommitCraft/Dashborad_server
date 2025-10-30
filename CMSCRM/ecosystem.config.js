@@ -2,8 +2,8 @@ module.exports = {
   apps: [
     {
       name: 'cmscrm-frontend-dev',
-      script: 'npm.cmd',
-      args: 'run dev',
+      script: 'C:\\Program Files\\nodejs\\node.exe',
+      args: 'node_modules/vite/bin/vite.js',
       cwd: './frontend',
       instances: 1,
       exec_mode: 'fork',
@@ -38,7 +38,7 @@ module.exports = {
     },
     {
       name: 'cmscrm-frontend-build',
-      script: 'npm.cmd',
+      script: 'npm',
       args: 'run build',
       cwd: './frontend',
       instances: 1,
