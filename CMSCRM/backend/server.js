@@ -6,6 +6,7 @@ const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const fileUpload = require('express-fileupload');
 const path = require('path');
+const os = require('os');
 require('dotenv').config();
 
 const db = require('./src/config/db');
@@ -14,55 +15,64 @@ const { errorHandler } = require('./src/middleware/errorHandler');
 const enhancedSystemMonitor = require('./src/utils/enhancedSystemMonitor');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Rate limiting
+// 🌐 Environment Variables
+const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST_IP || '0.0.0.0';
+
+// 📊 Dynamic local IP (fallback for console logs)
+const networkInterfaces = os.networkInterfaces();
+let localIP = 'localhost';
+for (const iface of Object.values(networkInterfaces)) {
+  for (const info of iface) {
+    if (info.family === 'IPv4' && !info.internal) {
+      localIP = info.address;
+      break;
+    }
+  }
+}
+
+// 🛡️ Rate Limiting
 const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX) || 100, // limit each IP to 100 requests per windowMs
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000,
+  max: parseInt(process.env.RATE_LIMIT_MAX) || 100,
   message: 'Too many requests from this IP, please try again later.'
 });
 
-// Middleware
+// 🔧 Middlewares
 app.use(limiter);
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 app.use(compression());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
-
-// CORS configuration
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  origin: process.env.CORS_ORIGIN || `http://${localIP}:8800`,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
-
-// Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-// File upload middleware
 app.use(fileUpload({
-  limits: { fileSize: parseInt(process.env.MAX_FILE_SIZE) || 5 * 1024 * 1024 }, // 5MB
+  limits: { fileSize: parseInt(process.env.MAX_FILE_SIZE) || 5 * 1024 * 1024 },
   abortOnLimit: true,
   responseOnLimit: 'File size limit exceeded'
 }));
 
-// Static file serving
+// 🗂️ Static File Serving
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// API call tracking middleware
+// 📡 API Monitoring
 app.use('/api', (req, res, next) => {
   enhancedSystemMonitor.incrementApiCall();
   next();
 });
 
-// API Routes
+// 🧭 Routes
 app.use('/api', routes);
 
-// Health check endpoint
+// 🩺 Health Check
 app.get('/health', (req, res) => {
   res.status(200).json({
     success: true,
@@ -72,7 +82,7 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Root endpoint
+// 🏠 Root Endpoint
 app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
@@ -82,7 +92,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// Handle 404 errors
+// ❌ 404 Handler
 app.use('*', (req, res) => {
   res.status(404).json({
     success: false,
@@ -91,41 +101,40 @@ app.use('*', (req, res) => {
   });
 });
 
-// Error handling middleware (must be last)
+// 🧯 Error Handler (must be last)
 app.use(errorHandler);
 
-// Start server
+// 🚀 Start Server
 const startServer = async () => {
   try {
-    // Test database connection
     await db.execute('SELECT 1');
     console.log('✅ Database connected successfully');
-    
-    app.listen(PORT, () => {
-      console.log(`🚀 CMSCRM Backend Server running on port ${PORT}`);
+
+    app.listen(PORT, HOST, () => {
+      const displayHost = HOST === '0.0.0.0' ? localIP : HOST;
+      console.log(`🚀 CMSCRM Backend Server running on http://${displayHost}:${PORT}`);
       console.log(`📊 Environment: ${process.env.NODE_ENV}`);
-      console.log(`🔗 Health Check: http://localhost:${PORT}/health`);
-      console.log(`📚 API Base: http://localhost:${PORT}/api`);
+      console.log(`🔗 Health Check: http://${displayHost}:${PORT}/health`);
+      console.log(`📚 API Base: http://${displayHost}:${PORT}/api`);
     });
+
   } catch (error) {
     console.error('❌ Failed to start server:', error.message);
     process.exit(1);
   }
 };
 
-// Handle unhandled promise rejections
+// 🧩 Process Handlers
 process.on('unhandledRejection', (err) => {
   console.error('Unhandled Promise Rejection:', err);
   process.exit(1);
 });
 
-// Handle uncaught exceptions
 process.on('uncaughtException', (err) => {
   console.error('Uncaught Exception:', err);
   process.exit(1);
 });
 
-// Graceful shutdown
 process.on('SIGTERM', () => {
   console.log('SIGTERM received. Shutting down gracefully...');
   process.exit(0);
