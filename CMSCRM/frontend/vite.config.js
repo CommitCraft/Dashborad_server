@@ -8,7 +8,7 @@ dotenv.config();
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: process.env.VITE_HOST || '0.0.0.0',
+    host: 'localhost',
     port: parseInt(process.env.VITE_PORT) || 8800,
   },
   define: {
